@@ -1,0 +1,111 @@
+.head_band{
+    display: block;
+    width: 1366px;
+    height: 46px;
+    background-color:white;
+    /*margin-top: 25px;*/
+    position: fixed;
+    top: 25px;
+    z-index: 99;
+    /*border: 1px solid red;*/
+}
+.logo{
+    float: left;
+    display: block;
+    width: 140px;
+    height: 46px;
+    margin-left: 50px;
+    background: url("/static/img/about_UI/WB_logo.png") no-repeat ;
+    background-size:70% 70% ;
+    background-position:0 6px ;
+    /*border: 1px red solid;*/
+    /*z-index: 99;*/
+}
+.head_band .logo a{
+    height: 44px;
+    width: 44px;
+}
+
+
+.search{
+    float: left;
+    /*border: 1px red solid ;*/
+    margin-left: 40px;
+    height: 46px;
+}
+.search input{
+    float: left;
+    width: 465px;
+    height: 30px;
+    font-size: 12px;
+    margin-top: 9px;
+}
+
+.search .fa,.fa-search{
+    float: left;
+    width: 28px;
+    height: 28px;
+    background-color: white;
+    border: none;
+    font-size: 20px;
+    position: relative;
+    left: -29px;
+    top: 10px;
+}
+
+.main_menu{
+    float: left;
+    display: block;
+    width: 576px;
+    height: 46px;
+    margin-left: 30px;
+}
+
+.main_menu .linkPage{
+    float: left;
+    display: block;
+}
+
+.main_menu .linkPage a{
+    text-decoration: none;
+    color:grey;
+    margin: 0 10px;
+    /*border: 1px solid red;*/
+    display: inline-block;
+    height: 46px;
+}
+.main_menu .linkPage a:hover{
+    color: coral;
+}
+.main_menu .linkPage a i{
+    float: left;
+    padding-right: 3px;
+    display: inline-block;
+    margin-top: 8px;
+    /*height: 46px;*/
+    /*border: 1px solid red;*/
+}
+.main_menu .linkPage a span{
+    font-size: 14px;
+    line-height: 46px;
+    display: inline-block;
+    /*border: 1px solid red;*/
+}
+
+.main_menu .myfunction{
+    float: left;
+    margin-left: 5px;
+    margin-top: 8px;
+    border-left: 1px darkgrey dashed;
+}
+.main_menu .myfunction .dropdown{
+    float: left;
+    margin-left: 15px;
+}
+.main_menu .myfunction .dropdown i:hover{
+    color: chocolate;
+}
+
+
+
+

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>我的首页 微博-注册</title>
+
+  <link rel="shortcut icon" href="/static/img/about_UI/favicon.ico" />
+  <link rel="bookmark" href="/static/img/about_UI/favicon.ico" type="image/x-icon"/>
+
+
+  <link rel="stylesheet" href="/static/css/top_info.css">
+  <link rel="stylesheet" href="/static/plugins/bootstrap-3.3.7-dist/css/bootstrap.css">
+  <link rel="stylesheet" href="/static/plugins/Font-Awesome-master/css/font-awesome.css">
+  <script type="text/javascript" src="/static/js/jquery-3.2.1.js"></script>
+  <script type="text/javascript" src="/static/plugins/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+  <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "Arial","Microsoft YaHei",serif;
+        }
+        body{
+            background-image: url("/static/img/about_UI/for_register.png");
+        }
+        .WB_signup{
+            border: 1px solid rgba(192,192,192,0.5);
+            background-color: whitesmoke;
+            width: 459px;
+            margin: 50px auto ;
+            /*padding: 20px;*/
+            color: aliceblue;
+        }
+        .input-group{
+            padding-bottom: 13px;
+            margin:0 20px;
+            /*height: 40px;*/
+            /*border-bottom: 1px solid rgba(192,192,192,0.5);*/
+        }
+        .logo{
+            width: 459px;
+            height: 90px;
+            background-image: url("/static/img/about_UI/WB_logo.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 62% 62%;
+            /*border: 1px solid red;*/
+        }
+        .form-control{
+            height: 40px;
+        }
+        .btn,.btn-default{
+            margin: 0 auto;
+            color: aliceblue;
+            background-color: orangered;
+            width:415px;
+            margin-left: 20px;
+        }
+        #WB_register{
+            display: none;
+        }
+        .description{
+            width: 459px;
+            text-align: center;
+            color: coral;
+            font-size: 18px;
+        }
+        .addon{
+             width:459px;
+             height:40px;
+             text-align:center;
+             line-height:40px;
+             background-color: rgb(246,246,246);
+        }
+
+        input.invalid::-webkit-input-placeholder {
+            color: rgba(255,0,0,0.6);
+        }
+
+  </style>
+</head>
+<body>
+    <!-- 头部仿汽车之家的顶部信息栏 -->
+    <div class="top_info clearfix">
+        <div class="locate">
+        </div>
+        <div class="c0">
+            <span class="c1"><i class="fa fa-location-arrow"></i>郑州</span>
+            <span class="c2">切换 <i class="caret"></i></span>
+        </div>
+        <div class="login_register">
+            <span class="c3" >您好!请</span>
+            <a class="c5" href="/signup/">登录</a>
+            <span class="c3">或</span>
+            <a class="c5" href="/signup/">注册</a>
+        </div>
+    </div>
+
+    <div style="width: 1366px;height: auto;">
+       <!--微博注册-->
+       <div class="WB_signup"  id="WB_register">
+            <div class="logo"></div>
+            <div class="description"><span>教给我们如何在人群中发现你?</span></div>
+
+              <!--此为用户名-->
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                <input  type="text" class="form-control"  placeholder="Username" name="username">
+              </div>
+              <!--此为注册邮箱-->
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                <input  type="email" class="form-control"  id="exampleInputEmail1" placeholder="Email" name="email">
+              </div>
+              <!--此为验证码-->
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-check-square fa-fw"></i></span>
+                <input type="text"  id="exampleInputCheckCode" class="form-control" style="width: 240px;margin-right: 4px;" placeholder="VerificationCode" name="email_code">
+                <button style="width: 130px;margin-left: 0;height: 40px;" id="send_code" class="btn btn-default">获取验证码</button>
+              </div>
+              <!--此为密码-->
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                <input  type="password" class="form-control"  placeholder="Password" name="password">
+              </div>
+
+              <button id="register" class="btn btn-default" style="margin-bottom: 15px;">注册</button>
+
+            <div class="addon">
+                <span style="color: #0f0f0f;">已有账号?</span>
+                <a style="text-decoration: none;cursor: pointer;">登陆</a>
+            </div>
+
+        </div>
+
+       <!-- 此为登录 -->
+       <div class="WB_signup" id="WB_login">
+            <div class="logo"></div>
+            <div class="description"><span>登陆让我们赶紧更近一步认识你</span></div>
+
+          <!--此为用户名-->
+              <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-user fa-fw"></i>
+                    <i class="fa fa-user fa-exchange"></i>
+                    <i class="fa fa-envelope-o fa-fw"></i>
+                </span>
+                <input  type="text" class="form-control"  placeholder="Username or Email" name="username">
+              </div>
+
+              <!--此为密码-->
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                <input  type="password" class="form-control"  placeholder="Password" name="password">
+              </div>
+
+              <!--此为图片验证码-->
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-check-square fa-fw"></i></span>
+                <input type="text"  id="exampleInputimgCode" class="form-control" style="width: 240px;margin-right: 4px;" placeholder="VerificationCode" name="email_code">
+
+                <button style="width: 130px;margin-left: 0;height: 40px;">
+                    <img src="/check_img_code/" id='imgCode'>
+                </button>
+              </div>
+
+              <div class="input-group">
+                <button style="width: 130px;margin-left: 288px;height: 40px;" class="btn btn-default">使用邮箱验证码</button>
+              </div>
+
+              <button id="login" class="btn btn-default" style="margin-bottom: 15px;">登陆</button>
+
+              <div class="addon">
+                <span style="color: #0f0f0f;">没有账号?</span>
+                <a  style="text-decoration: none;cursor: pointer;">注册</a>
+              </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+
+        $(".addon>a").click(function() {
+            $('#WB_login').fadeToggle(0);//.toggle(1000);//slideToggle(1000);
+            $('#WB_register').fadeToggle(0);//.toggle(1000);//slideToggle(1000);
+        });
+
+        $("#imgCode").click(function() {
+            this.src += '?';
+        });
+
+        function settime(ths,timer){
+            //设置逗留时间
+            if(timer == 0){
+                $(ths).prop("disabled",false);
+                $(ths).html("重新获取验证码");
+                return;
+            }else {
+                $(ths).prop("disabled",true);
+                $(ths).html("<i class=\"fa fa-spinner fa-pulse\"></i>已发送("+timer+"s)");
+                timer --;
+            }
+            setTimeout(function() {
+                    settime(ths,timer);
+                },1000);//过1秒执行一次左边的函数
+        }
+
+        $('#send_code').click(function() {
+            var email = $('#exampleInputEmail1').val();
+            if(email == ""){
+                alert("您的邮箱为空");
+            };
+
+            console.log("this1"+this);
+            //提示用户邮箱并且发送AJax
+            $.ajax({
+                // async: false,
+                url:"/send_code/", //发送到的地方
+                type:"POST",
+                data:{"email": email},//默认值为字符串,如果是其它格式需要转换
+                // dataType:"json",
+                success:function (arg) {
+                    //判断后端返回的数据中status是否有问题,如果有问题,则进入xx操作,否则如下操作
+                    //发送数据成功之后去做两件事情
+                    //第一 设计计时器的状态(当没有出现因为邮箱重复而引发的一系列的问题时)
+                    //第二 设置并提示给用户错误的信息是什么(当status为错误时)
+                    var obj = JSON.parse(arg);
+                    console.log(obj);
+                    console.log("this2"+this);
+                    if(obj.status){
+                        //会重新刷新页面,像render一样,感觉还是不错的
+                        // location.href = "/register/";
+                        settime($('#send_code'),60);
+                        console.log("success!");
+                    }
+                    else{
+                        // console.log(obj.error);
+                        var obj1=$('#exampleInputEmail1');
+                        obj1.val(obj.error);
+                        obj1.css('color','red');
+                    }
+                }
+
+            });
+
+        });
+
+        $("#register").click(function() {
+            var post_dict = {};
+
+            $('#WB_register .form-control').each(function() {
+              var input_value = $(this).val();
+              var name_value = $(this).attr('name');
+              post_dict[name_value] = input_value;
+            });
+
+            console.log(post_dict);
+
+            post_dict_str = JSON.stringify(post_dict);
+
+            $.ajax({
+                // async:false,
+                url: '/register/',
+                type: 'POST',
+                data: {'reg_data':post_dict_str},
+                dataType:"json",
+                success:function (arg) {
+                    //当使用json.dumps的时候,返回来的就是json对象,因此下面这句就是有问题的
+                    // var obj = JSON.parse(arg);
+                    console.log("-------------------------");
+                    console.log(arg,typeof(arg));
+                    console.log("-------------------------");
+
+                    if(arg.status){
+                       alert("您已成功注册微博,即将进入个人页面.");
+                       location.href = "/index/";
+                       // 状态成功之后链接到某个页面(即登陆界面登陆后进入的界面,否则输出错误信息并放到相应的位置上
+                    }else{
+                       console.log(arg.error);
+                       //$('#send_code').html();
+                       var error_info = arg.error;
+                       if(error_info=="该邮箱已经被注册,请登陆"){
+                            $("#WB_register input[name='email']").val("").addClass("invalid").attr("placeholder",arg.error);
+                       }else{
+                           $('#exampleInputCheckCode').val("").addClass("invalid").attr("placeholder",arg.error);
+                       }
+
+                    }
+                }
+
+            })
+        });
+
+        $("#login").click(function() {
+            var post_dict = {};
+            $('#WB_login .form-control').each(function() {
+              var input_value = $(this).val();
+              var name_value = $(this).attr('name');
+              post_dict[name_value] = input_value;
+            });
+            login_data = JSON.stringify(post_dict);
+            console.log(post_dict);
+            $.ajax({
+                url: "/login/",
+                type: "POST",
+                data: {"login_data":login_data},
+                dataType:"json",
+                success:function(arg) {
+                    if(arg.status){
+                        console.log(arg.status);
+                        location.href = "/index/";
+                    }
+                    else{
+                        var error_info = arg.message;
+                        //错误的信息有几种
+                        //1.ret['message'] = "验证码错误,请重新输入！"
+                        //2.ret['message'] = "用户名不存在或密码错误"
+                        //3.ret['message'] = str(e)
+                        console.log(error_info);
+
+                        if(error_info == "验证码错误，请重新输入"){
+                            $("#WB_login #exampleInputimgCode").val("").addClass("invalid").attr("placeholder",error_info);
+                        }else{
+                            $("#WB_login input[name='username']").val("").addClass("invalid").attr("placeholder",error_info);
+                        }
+
+                    }
+
+                },
+                error:function(arg) {
+                    console.log(arg);
+                }
+            })
+
+        })
+
+    </script>
+
+</body>
+</html>

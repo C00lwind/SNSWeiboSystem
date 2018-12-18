@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>我的微博主页</title>
+  <link rel="shortcut icon" href="/static/img/about_UI/favicon.ico" />
+  <link rel="bookmark" href="/static/img/about_UI/favicon.ico" type="image/x-icon"/>
+  <script type="text/javascript" src="/static/js/jquery-3.2.1.js"></script>
+
+  <link rel="stylesheet" href="/static/plugins/bootstrap-3.3.7-dist/css/bootstrap.css">
+  <link rel="stylesheet" href="/static/plugins/Font-Awesome-master/css/font-awesome.css">
+
+
+  <link rel="stylesheet" href="/static/css/top_info.css">
+  <link rel="stylesheet" href="/static/css/head_band.css">
+  <link rel="stylesheet" href="/static/css/threePart.css">
+
+  <link rel="stylesheet" href="/static/css/personal_homepage.css">
+  <link rel="stylesheet" href="/static/css/related_info.css">
+  <link rel="stylesheet" href="/static/css/bottom_info.css">
+
+  <script type="text/javascript" src="/static/js/commons.js"></script>
+  <script type="text/javascript" src="/static/plugins/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+  <style type="text/css">
+
+    *{
+        padding: 0;
+        margin: 0;
+    }
+
+    body{
+        background-image: url("/static/img/about_UI/skin.png");
+        background-size:1366px auto;
+        font-family: "MyNewFont","Arial","Microsoft YaHei",serif;
+    }
+    .clearfix:after{
+        content: '.';
+        clear: both;
+        display: block;
+        visibility: hidden;
+        height: 0;
+    }
+    hide{
+        display: none;
+    }
+    .modal-body{
+        height: 120px;
+        width: 120px;
+        /*border: 1px solid red;*/
+        overflow: hidden;
+    }
+
+    #files{
+        font-size: 80px;
+        width: 69px;
+        height: 66px;
+        opacity: 0;
+        /*z-index: 99;*/
+    }
+
+    #image{
+        width:120px;
+        height:120px;
+        margin-top: -83px;
+        margin-left: -18px;
+        border:1px solid red;
+        float: left;
+        border-radius: 3px;
+    }
+   .modal-body:hover{
+        border: 2px dotted orangered;
+    }
+  </style>
+</head>
+<body>
+    <!--通用页面的展示-->
+    {% include "global_handler_page/directory.html"%}
+
+    <div class="profile clearfix">
+        {% for user_item in user_info %}
+        <div  style="text-align: center;">
+            <img src="/{{user_item.head_img}}" class="img-rounded" id="user_photo" data-toggle="modal" data-target="#myModal"/>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">头像更换</h4>
+                  </div>
+                  <div class="modal-body" style="height: 120px;">
+                        <form id="upload_file" enctype="multipart/form-data">
+                            <input type="file" id="files" accept="image/jpg,image/jpeg,image/png,image/gif"
+                                        name="head_img_change" onchange="PreviewFile(this);" />
+                            <img id="image" src="/static/img/about_UI/add.png" style="border: 1px solid gainsboro;" draggable="true"/>
+                        </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="submitMyHeadImg(this);">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+        <div class="description">
+            <span style="font-size: 20px;">{{user_item.username}}<i class="fa fa-venus sex_show">{{user_item.sex}}</i></span>
+        </div>
+        <div class="brief">
+             <span>{{user_item.brief}}</span>
+        </div>
+        {% endfor %}
+        <div class="column">
+            <table class="tb_tab" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td><a class="table_link" href="">我的主页</a></td>
+                        <td><a class="table_link" href="">我的相册</a></td>
+                        <td><a class="table_link" href="">管理中心</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="related_info clearfix">
+        <div class="related_info1" style="height: 514px;width: 300px;float: left">
+            <div class="fans_follows">
+                <table  class="tb_counter" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>{{follows_num.follows}}</strong>
+                                <div>关注</div>
+                            </td>
+                            <td>
+                                <strong>{{fans_num}}</strong>
+                                <div>粉丝</div>
+                            </td>
+                            <td>
+                                <strong>{{weibo_num.weibo_num}}</strong>
+                                <div>微博</div>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="game">
+                <span>集财神卡赢大奖</span>
+                <span style="float: right;margin-right: 25px;">财神卡大厅&nbsp;&nbsp;<i class="fa fa-angle-right"></i></span>
+            </div>
+            <div class="verify">
+                <div class="onepart">
+                    <a href="javascript:void(0);">申请认证</a>
+                    <span>| Lv9</span>
+                </div>
+                <div class="twopart">
+                    <p>个人资料完成度 35%</p>
+                    <div class="integrity">
+                        <div class="bar" style="height:4px;width: 35%;background-color: orangered"></div>
+                    </div>
+                </div>
+                <div class="threepart">
+                    <span>编辑个人资料<i class="fa fa-angle-right"></i></span>
+                </div>
+            </div>
+            <div class="thumb_up">
+                <p>赞</p>
+                <div>查看更多 ></div>
+            </div>
+        </div>
+        <div class="related_info2" style="overflow: auto;">
+            <div class="messageShow  clearfix" style="margin-top: 0;">
+                <!--从数据库中拿到数据,按照某种规则拜访,加上相关样式-->
+                {% for weibo_item in my_weibo %}
+                    <div class="show1">
+                        <div style="float: right;margin: 10px; color: grey;"><i class="fa fa-angle-down fa-2x"></i></div>
+                        <div class="briefShow">
+                            <img src="/{{weibo_item.user__head_img}}" id="photo_identity" class="img-rounded">
+                            <p style="font-weight: bold;font-size: 18px;margin-left: 60px;margin-bottom: 3px;">{{ weibo_item.user__username}}</p>
+                            <p style="margin-left: 60px;">{{ weibo_item.date }}</p>
+                        </div>
+
+                      <div class="textShow">
+                            <p id="text_show" class="text_show" style="margin-left: 21px;">{{weibo_item.text}}</p>
+                        </div>
+
+                        <div class="weibo_menu">
+                            <dd id="icollect"><i class="fa fa-star-o"  style="cursor: pointer;">收藏</i></dd>
+                            <dd id="icomment" target="{{weibo_item.id}}" onclick="ToggleCommentArea(this)"><i class="fa fa-comment-o" style="cursor: pointer;">评论</i></dd>
+                            <dd id="ishare"><i class="fa fa-share-alt" style="cursor: pointer;">分享</i></dd>
+                            <dd id="ilike"><i class="fa fa-thumbs-o-up" style="cursor: pointer;">点赞</i></dd>
+
+                        </div>
+
+                        <div class="commentInfo hide">
+                            <div class="commentPlace">
+                                {% for user_item in user_info%}
+                                <div class="set_myComment">
+                                    <img src="/{{user_item.head_img}}" style="width: 30px;height: 30px;border: 1px solid grey;">
+                                    <input type="text" style="width: 518px;height: 30px;"/>
+                                    <button weibo_id="{{weibo_item.id}}" target="{{user_item.id}}" onclick="setComment(this);" class="btn btn-default" style="margin: 15px;float: right;">评论</button>
+                                </div>
+                                {% endfor %}
+
+                                <div class="get_allComment" id="commentZone"> </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                {% endfor%}
+
+            </div>
+            <div class="detail_personal_info clearfix">
+                <div class="info_group">
+                    <div class="clearfix" style="background-color: white">
+                        <button class="btn btn-default" style="float: left;" onclick="info_change(this);">点击修改</button>
+                        <button class="btn btn-default" style="float: right;" onclick="info_save(this);">点击保存</button>
+                    </div>
+                    {% for person_item in personal_info %}
+                    <div class="input-group">
+                        <span class="input-group-addon">用户类型:</span>
+                        <input type="text" class="form-control" value="{{person_item.user}}" disabled="disabled">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">用户名:</span>
+                        <input type="text" class="form-control" value="{{person_item.username}}" disabled="disabled">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">个人简介:</span>
+                        <input type="text" class="form-control" value="{{person_item.brief}}" name="brief" disabled="disabled">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">性别:</span>
+                        <input type="text" class="form-control" value="{{person_item.sex}}" name="sex" disabled="disabled">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">年龄:</span>
+                        <input type="text" class="form-control" value="{{person_item.age}}" name="age" disabled="disabled">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">邮箱:</span>
+                        <input type="text" class="form-control" value="{{person_item.email}}" disabled="disabled">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">密码:</span>
+                        <input type="text" class="form-control" value="{{person_item.password}}" name="password" disabled="disabled">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">注册时间:</span>
+                        <input type="text" class="form-control" value="{{person_item.registration_date}}" disabled="disabled">
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom_info clearfix">
+        <div class="footer_link">
+            <dl class="list">
+                <dt>微博精彩</dt>
+                <dd>
+                    <a href="#">热门微博</a>
+                    <a href="#">热门话题</a>
+                </dd>
+                <dd>
+                    <a href="#">名人堂</a>
+                    <a href="#">微博会员</a>
+                </dd>
+                <dd>
+                    <a href="#">微相册</a>
+                    <a href="#">微游戏</a>
+                </dd>
+                <dd>微指数</dd>
+            </dl>
+            <dl class="list">
+                <dt>手机玩微博</dt>
+                <dd>
+                    <span><img src="/static/img/about_UI/footer_code.jpg" alt=""></span>
+                    <a href="#">扫码点击这里下载</a>
+                </dd>
+            </dl>
+            <dl class="list">
+                <dt>认证&合作</dt>
+                <dd>
+                    <a href="#">申请认证</a>
+                    <a href="#">链接网站</a>
+                </dd>
+                <dd>
+                    <a href="#">企业微博</a>
+                    <a href="#">广告服务</a>
+                </dd>
+                <dd>
+                    <a href="#">微博标识</a>
+                    <a href="#">广告代理商</a>
+                </dd>
+                <dd>开放平台</dd>
+            </dl>
+            <dl class="list">
+                <dt>微博帮助</dt>
+                <dd>
+                    <a href="#">常见问题</a>
+                    <a href="#">自助服务</a>
+                </dd>
+            </dl>
+        </div>
+        <div class="other_link">
+            <p>微博客服</p>
+            <p>京ICP证100780号</p>
+            <p>广播电视节目制作经营许可证</p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        $(function() {
+            $(".text_show").each(function() {
+                $(this).html(replace_em($(this).text()));
+            });
+        });
+
+        $(".verify .threepart span").click(function() {
+          $(".related_info2 .messageShow").toggle();
+          $(".related_info2 .detail_personal_info").toggle();
+        });
+
+        function info_change(ths) {
+            $(ths).parent().nextAll().children("input").each(function() {
+            if($(this).attr("name")=="age"||
+                $(this).attr("name")=="brief"||
+                    $(this).attr("name")=="password"||
+                        $(this).attr("name")=="sex"){
+                $(this).prop("disabled",false);//.removeAttr("disabled");//
+            }
+            });
+        }
+
+        function info_save(ths) {
+//1.先完成信息的正确显示
+//2.获取用户修改过后的 简介,密码,性别(对于头像的修改借助一个模态对话框)
+//3.借助ajax发送到后台,通过post方法完成对于数据库相关信息的修改
+//4.返回修改后的状态,
+//  if正确的话,
+//      则将修改状态再次为不可修改并将修改后的信息填充到原来的value
+//  else:
+//      alert("修改失败,请检查网络等")
+var user_update_info = {};
+$(ths).parent().nextAll().children("input").each(function() {
+
+if($(this).attr("name")=="brief"){
+    var brief = $(this).val();
+    user_update_info["brief"] = brief;
+}else if($(this).attr("name")=="password"){
+    var password = $(this).val();
+    user_update_info["password"] = password;
+}else if($(this).attr("name")=="sex"){
+    var sex = $(this).val();
+    user_update_info["sex"] = sex;
+}else if($(this).attr("name")=="age"){
+    var age = $(this).val();
+    user_update_info["age"] = age;
+}
+});
+user_update_info = JSON.stringify(user_update_info);
+$.ajax({
+url: "/user_profile/",
+type: "POST",
+data: {"user_update_info":user_update_info},
+dataType: "json",
+success:function(arg) {
+    if(arg.status){
+        //当更改状态成功的时候,会刷新页面,并显示改变的结果
+        $(".info_group").empty().html("<span style='color: coral;'>信息修改成功,即将刷新页面</span>");
+        setTimeout(function() {
+            location.href = "/user_profile/";
+        },2000);
+
+    }else{
+        console.log("error");
+    }
+}
+})
+}
+
+    </script>
+
+
+
+</body>
+</html>

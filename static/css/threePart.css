@@ -1,0 +1,321 @@
+.threePart{
+    display: block;
+    width: 1366px;
+    height:1000px;
+    /*position: absolute;*/
+    margin-top: 75px;
+    /*border: 1px solid red;*/
+    /*position: fixed;*/
+}
+.bigMenu{
+    float: left;
+    width: 200px;
+    height: 500px;
+    background-color: rgba(70,149,194,0.3);
+    position: fixed;
+    top: 75px;
+    left: 145px;
+}
+
+.second{
+    float: left;
+    height: 1000px;
+    width: 600px;
+    margin-left: 353px;
+}
+.post{
+    float: left;
+    width: 600px;
+    height: 165px;
+    background-color: white;
+    border-radius:6px;
+    /*border-top-right-radius: 6px;*/
+    /*border: 1px solid red;*/
+}
+
+.post .cEmotion{
+    float: left;
+    /*border: 1px solid red;*/
+    margin-left: 15px;
+    margin-top: 10px;
+    margin-right: 10px;
+    color: coral;
+}
+
+.post .cPhoto{
+    float: left;
+    /*border: 1px solid red;*/
+    margin: 10px 8px 10px 8px;
+    color: green;
+}
+
+.post .cVideo{
+    float: left;
+    /*border: 1px solid red;*/
+    margin: 10px 8px 10px 8px;
+    color: deepskyblue;
+}
+.post #post_text{
+    width:568px;
+    height: 70px;
+    border: 1px solid grey;
+    margin: 4px 14px;
+    resize: none;
+    /*outline: none;*/
+    /*color: lightcoral;*/
+}
+.post #post_text:focus{
+    outline-color: orangered ;
+}
+.second .post .cTopic{
+    float: left;
+    /*border: 1px solid red;*/
+    margin: 10px 8px 10px 8px;
+    color: rosybrown;
+}
+
+.second .post .cShare{
+    float: left;
+    /*border: 1px solid red;*/
+    margin: 10px 8px 10px 8px;
+    color: dodgerblue;
+}
+.second .post .cMore{
+    float: left;
+    margin: 10px 8px 10px 8px;
+    color: #3e8f3e;
+}
+.second .post .cStatus{
+    float: left;
+    /*border: 1px solid red;*/
+    margin: 10px 0 10px 0;
+    width: 85px;
+    color: grey;
+}
+.second .post .cStatus i{
+    float: right;
+    cursor: pointer;
+    font-size: 16px;
+    color: crimson;
+    margin-top: 2px;
+    width: 12px;
+    /*border: 1px solid red;*/
+}
+.second .post .cStatus span{
+    float: left;
+    /*border: 1px solid red;*/
+    text-align: right;
+    font-size: 14px;
+    width: 70px;
+    color: darkgrey;
+}
+.second .post .cStatus li{
+    cursor: pointer;
+    text-align: center;
+    font-size: 12px;
+
+
+}
+.dropdown-menu li:hover{
+    background-color: lightgray;
+}
+
+.second .post .cSubmit button{
+    float: right;
+    width: 114px;
+    height: 38px;
+    margin-right: 17px;
+    margin-top: -3px;
+    background-color: coral;
+    color: aliceblue;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.messageShow{
+    float: left;
+    height: auto;
+    width: 600px;
+    /*background-color: white;*/
+    /*border: 1px solid orangered;*/
+    margin-top: 10px;
+    overflow: hidden !important;
+}
+
+.briefShow{
+    width: 600px;
+    height: 60px;
+    padding: 17px;
+}
+#photo_identity{
+    float: left;
+    width: 50px;
+    height: 50px;
+    border-radius:26px;
+    border: 1px solid grey;"
+}
+.textShow{
+    width: 500px;
+    height: inherit;
+    padding: 20px 2px;
+    margin-left: 70px;
+    /*border: 1px solid #ddd;*/
+    border-radius: 0.4em;
+    color: #555555;
+    /*background-color: rgb(247,247,247);*/
+    /*opacity: 0.8;*/
+
+}
+.show1{
+    width: 600px;
+    height: auto;
+    /*background-color: rgba(255,255,255,0.3);*/
+    background-color: white;
+    border-radius:6px;
+    margin-bottom: 10px;
+    /*border: 1px solid #ddd;*/
+
+}
+.show1 .dropdown li{
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+.show1 .dropdown li:hover{
+    cursor: pointer;
+    color: orangered;
+}
+
+.weibo_menu{
+    height:40px;
+    width:600px;
+    border-top: 1px solid rgba(190,190,190,0.5);
+    border-bottom: 1px solid rgba(190,190,190,0.5);
+}
+
+.weibo_menu dd{
+        float:left;
+		list-style:none;
+		padding:0 5px;
+		border-right: 1px solid rgba(190,190,190,0.5);
+		line-height:40px;
+		width:25%;
+		text-align:center;
+        cursor: pointer;
+}
+.weibo_menu  dd:hover{
+    color: coral;
+}
+.commentInfo{
+    /*margin-top: 17px;*/
+    /*border: 1px solid black;*/
+    padding: 0 15px;
+    background-color: rgba(242,242,245,0.7);
+}
+.commentPlace{
+        height: 700px;
+        width: 600px;
+        /*border: 1px solid black;*/
+        margin-top: 15px;
+        overflow: hidden;
+}
+.set_myComment{
+        width: 600px;
+        height: 100px;
+        padding: 10px 5px 0 3px;
+        border-bottom: 1px solid grey;
+}
+
+
+#commentContent{
+    width: 600px;
+    height: 440px;
+    background: rgb(242,242,245);
+}
+
+.get_allComment{
+    width: 600px;
+    height: auto;
+    /*border: 1px solid grey;*/
+
+    overflow: auto;"
+}
+
+.more{
+    display: block;
+    width: 230px;
+    height: auto;
+    float: left;
+    /*border: 1px solid red;*/
+    /*margin-left: 8px;*/
+    /*margin-top: 15px;*/
+    position: absolute;
+    /*right:170px;*/
+    left:965px;
+
+
+}
+.personal{
+    width: 230px;
+    height: 165px;
+    /*border: 1px solid red;*/
+
+
+}
+.personal_photo{
+    width: 230px;
+    height: 75px;
+    /*background-image: url("/static/skin.png");*/
+    background-size: 100% 100%;
+    /*background-color:rgba(255,255,255,0.8) ;*/
+    /*opacity: 0.6;*/
+}
+.personal_detail{
+    width: 230px;
+    height: 90px;
+    background-color: white;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px;
+}
+.logined_user{
+    position: relative;
+    text-align:center;
+    top: 20px;
+    font-weight: bold;
+    font-size: 17px;
+}
+.follows_fans{
+    position: relative;
+    top: 22px;
+    width: 230px;
+    /*border: 1px solid red;*/
+}
+.follows_fans dl{
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    border-right:1px solid grey;
+}
+
+
+.topicList{
+    width: 233px;
+    height: 322px;
+    background-color: white;
+    /*border: 1px solid red;*/
+    border-radius:6px;
+    margin-top: 10px;
+
+}
+.hotTopic{
+    width: 233px;
+    height: 40px;
+    border-bottom: 1px solid grey;
+    padding: 12px;
+}
+.topicShow li:hover{
+    color: red;
+    cursor: pointer;
+}
